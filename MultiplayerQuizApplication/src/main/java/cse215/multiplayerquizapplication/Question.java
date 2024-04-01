@@ -27,9 +27,13 @@ public class Question {
         System.out.println("Enter your choice : ");
         char choice = input.next().charAt(0);
         if (choice == this.ans) {
-            number += 1;
+            number = 1;
         }
 
+    }
+
+    public int getNumber() {
+        return number;
     }
 
     @Override
@@ -37,8 +41,5 @@ public class Question {
         return "";
     }
 
-    public int getNumber() {
-        return number;
-    }
 
 }

@@ -11,15 +11,13 @@ public class MultiplayerQuizApplication {
 			int index = 0;
 			while ((line = reader.readLine()) != null) {
 				String[] parts = line.split(",");
-				if (parts.length >= 6) {
-					String questionText = parts[0].trim();
-					String optionA = parts[1].trim();
-					String optionB = parts[2].trim();
-					String optionC = parts[3].trim();
-					String optionD = parts[4].trim();
+					String questionText = parts[0];
+					String optionA = parts[1];
+					String optionB = parts[2];
+					String optionC = parts[3];
+					String optionD = parts[4];
 					char correctAnswer = parts[5].trim().charAt(0);
 					questions[index++] = new Question(questionText, optionA, optionB, optionC, optionD, correctAnswer);
-				}
 			}
 			return questions;
 		} catch (IOException e) {
@@ -39,7 +37,10 @@ public class MultiplayerQuizApplication {
 				System.out.println(questions[i]);
 			}
 
-			System.out.println("Total Marks: " + totalMarks); // Print total marks at the end
+			System.out.println("Total Marks: " + totalMarks); 
+		}
+		else {
+			System.out.println("No questions found.");
 		}
 	}
 }
