@@ -49,7 +49,7 @@ public class WelcomePage extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(720, 480));
         setResizable(false);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
         PlayButton.setBackground(new java.awt.Color(255, 255, 255));
         PlayButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
