@@ -50,7 +50,6 @@ public class QuizPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 100));
-        setPreferredSize(new java.awt.Dimension(1080, 720));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
@@ -155,6 +154,11 @@ public class QuizPage extends javax.swing.JFrame {
         Choice.setBackground(new java.awt.Color(51, 51, 51));
         Choice.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Choice.setForeground(new java.awt.Color(255, 255, 255));
+        Choice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChoiceActionPerformed(evt);
+            }
+        });
         Choice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ChoiceKeyPressed(evt);
@@ -300,6 +304,10 @@ public class QuizPage extends javax.swing.JFrame {
     private void ChoiceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChoiceKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_ChoiceKeyPressed
+
+    private void ChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChoiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChoiceActionPerformed
 
     /**
      * @param args the command line arguments
