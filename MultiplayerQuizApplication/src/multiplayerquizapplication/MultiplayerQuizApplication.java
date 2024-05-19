@@ -27,8 +27,11 @@ public class MultiplayerQuizApplication {
 	}
 
 	public static void main(String[] args) {
-                //LoginPage();
+            
+                Player p = new Player();
 		String file_name = "questions.txt";
+                //WelcomePage welcome = new WelcomePage();
+                //welcome.show();
 		Question[] questions = FileReader(file_name);
 		if (questions != null) {
 			int totalMarks = 0; // Variable to store total marks

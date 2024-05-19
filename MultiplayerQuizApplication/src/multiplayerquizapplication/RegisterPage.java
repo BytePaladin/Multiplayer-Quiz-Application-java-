@@ -33,6 +33,7 @@ public class RegisterPage extends javax.swing.JFrame {
         RegisterPlayerNameTextField = new javax.swing.JTextField();
         RegisterPlayerPasswordField = new javax.swing.JPasswordField();
         CreateAccountButton = new javax.swing.JButton();
+        ExitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 204));
@@ -72,6 +73,16 @@ public class RegisterPage extends javax.swing.JFrame {
             }
         });
 
+        ExitButton.setBackground(new java.awt.Color(51, 51, 51));
+        ExitButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ExitButton.setForeground(new java.awt.Color(255, 255, 255));
+        ExitButton.setText("Exit Game");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -84,7 +95,10 @@ public class RegisterPage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CreateAccountButton)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(118, 118, 118)
+                                .addComponent(CreateAccountButton))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(RegisterNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -109,7 +123,9 @@ public class RegisterPage extends javax.swing.JFrame {
                     .addComponent(RegisterPlayerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegisterPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94)
-                .addComponent(CreateAccountButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CreateAccountButton)
+                    .addComponent(ExitButton))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -133,6 +149,13 @@ public class RegisterPage extends javax.swing.JFrame {
         loginpage.show();
         dispose();
     }//GEN-LAST:event_CreateAccountButtonActionPerformed
+
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+        // TODO add your handling code here:
+        ExitPage exitpage = new ExitPage();
+        exitpage.show();
+        dispose();
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +194,7 @@ public class RegisterPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateAccountButton;
+    private javax.swing.JButton ExitButton;
     private javax.swing.JLabel RegisterNameLabel;
     private javax.swing.JLabel RegisterPageLabel;
     private javax.swing.JLabel RegisterPasswordLabel;
