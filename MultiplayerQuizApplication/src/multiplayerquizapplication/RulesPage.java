@@ -50,7 +50,7 @@ public class RulesPage extends javax.swing.JFrame {
         RulesTextField.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         RulesTextField.setForeground(new java.awt.Color(255, 51, 51));
         RulesTextField.setRows(5);
-        RulesTextField.setText("1. Both players will face the same questions at the same , the fastest inputer will get the\n    point for answering right .\n\n2. The time limit for each question is 15s , if no one is able to answer withing this time no\n     players will get the number for this question .\n\n3. Do not answer from each others input .\n\n4. Player 1 will be assigned Q , W , E , R which are a , b , c , d option in order . \n\n5.  Player 2 will be assigned H , J , K , L which are a , b , c , d option in order . ");
+        RulesTextField.setText("1. Both players will face the same questions at the same , the fastest inputer will get the\n    point for answering right .\n\n2. The time limit for each question is 15s , if no one is able to answer withing this time no\n     players will get the number for this question .\n\n3. Do not answer from each others input .\n\n4. Player 1 will be assigned Q , W , E , R which are a , b , c , d options in order . \n\n5.  Player 2 will be assigned H , J , K , L which are a , b , c , d options in order . \n\n6. If it is a tie then no one gets the winning point");
         RulesTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         RulesTextField.setCaretColor(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(RulesTextField);

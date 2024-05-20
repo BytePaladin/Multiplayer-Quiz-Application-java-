@@ -4,6 +4,8 @@
  */
 package multiplayerquizapplication;
 
+import static multiplayerquizapplication.MultiplayerQuizApplication.playerRead;
+
 /**
  *
  * @author Sabit
@@ -14,6 +16,8 @@ public class RankPage extends javax.swing.JFrame {
      * Creates new form RankPage
      */
     public RankPage() {
+        String playerFile = "player.txt" ;
+        Player[] players = playerRead(playerFile);
         initComponents();
     }
 
@@ -60,6 +64,11 @@ public class RankPage extends javax.swing.JFrame {
         Rank1.setForeground(new java.awt.Color(0, 0, 0));
         Rank1.setText("jTextField1");
         Rank1.setBorder(null);
+        Rank1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Rank1ActionPerformed(evt);
+            }
+        });
 
         Rank2.setEditable(false);
         Rank2.setBackground(new java.awt.Color(255, 255, 255));
@@ -240,6 +249,10 @@ public class RankPage extends javax.swing.JFrame {
         exitpage.show();
         dispose();
     }//GEN-LAST:event_ExitButtonActionPerformed
+
+    private void Rank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rank1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Rank1ActionPerformed
 
     /**
      * @param args the command line arguments

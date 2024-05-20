@@ -120,7 +120,7 @@
                   <Color blue="33" green="33" red="ff" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="1. Both players will face the same questions at the same , the fastest inputer will get the&#xa;    point for answering right .&#xa;&#xa;2. The time limit for each question is 15s , if no one is able to answer withing this time no&#xa;     players will get the number for this question .&#xa;&#xa;3. Do not answer from each others input .&#xa;&#xa;4. Player 1 will be assigned Q , W , E , R which are a , b , c , d option in order . &#xa;&#xa;5.  Player 2 will be assigned H , J , K , L which are a , b , c , d option in order . "/>
+                <Property name="text" type="java.lang.String" value="1. Both players will face the same questions at the same , the fastest inputer will get the&#xa;    point for answering right .&#xa;&#xa;2. The time limit for each question is 15s , if no one is able to answer withing this time no&#xa;     players will get the number for this question .&#xa;&#xa;3. Do not answer from each others input .&#xa;&#xa;4. Player 1 will be assigned Q , W , E , R which are a , b , c , d options in order . &#xa;&#xa;5.  Player 2 will be assigned H , J , K , L which are a , b , c , d options in order . &#xa;&#xa;6. If it is a tie then no one gets the winning point"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                     <BevelBorder/>

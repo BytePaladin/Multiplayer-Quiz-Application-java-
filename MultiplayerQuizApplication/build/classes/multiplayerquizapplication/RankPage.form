@@ -164,6 +164,9 @@
               <Border info="null"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Rank1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Rank2">
           <Properties>

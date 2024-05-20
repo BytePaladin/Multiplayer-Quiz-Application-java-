@@ -3,15 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/Question.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/ResultPage.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/RankPage.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/WelcomePage.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/LoginPage.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/RegisterPage.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/QuestionSelectionPage.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/RulesPage.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/MultiplayerQuizApplication.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/Question.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/RankPage.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/WelcomePage.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/QuestionSelectionPage.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/ExitPage.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/QuizPage.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/TiePage.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/MultiplayerQuizApplication/src/multiplayerquizapplication/Player.java</file>
         </group>
     </open-files>
 </project-private>

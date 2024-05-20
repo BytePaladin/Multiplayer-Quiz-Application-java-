@@ -4,6 +4,8 @@
  */
 package multiplayerquizapplication;
 
+import static multiplayerquizapplication.MultiplayerQuizApplication.playerRead;
+
 /**
  *
  * @author Sabit
@@ -34,6 +36,11 @@ public class RegisterPage extends javax.swing.JFrame {
         RegisterPlayerPasswordField = new javax.swing.JPasswordField();
         CreateAccountButton = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lengthError = new javax.swing.JLabel();
+        sameNameError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 204));
@@ -60,6 +67,11 @@ public class RegisterPage extends javax.swing.JFrame {
         RegisterPlayerNameTextField.setBackground(new java.awt.Color(255, 255, 255));
         RegisterPlayerNameTextField.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         RegisterPlayerNameTextField.setForeground(new java.awt.Color(102, 102, 102));
+        RegisterPlayerNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterPlayerNameTextFieldActionPerformed(evt);
+            }
+        });
 
         RegisterPlayerPasswordField.setBackground(new java.awt.Color(255, 255, 255));
         RegisterPlayerPasswordField.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -83,15 +95,29 @@ public class RegisterPage extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("minimum character 5 maximum 10");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("minimum character 5 maximum 12");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+
+        lengthError.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lengthError.setForeground(new java.awt.Color(255, 0, 0));
+
+        sameNameError.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        sameNameError.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(RegisterPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -106,38 +132,73 @@ public class RegisterPage extends javax.swing.JFrame {
                                 .addGap(61, 61, 61)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(RegisterPlayerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(RegisterPlayerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(330, Short.MAX_VALUE))
+                                    .addComponent(RegisterPlayerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
+                        .addComponent(RegisterPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(324, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lengthError, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(329, 329, 329)
+                    .addComponent(sameNameError, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(330, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(RegisterPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
+                .addGap(95, 95, 95)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegisterPlayerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegisterNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(3, 3, 3)
+                .addComponent(lengthError)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegisterPlayerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegisterPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(94, 94, 94)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CreateAccountButton)
                     .addComponent(ExitButton))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(157, 157, 157)
+                    .addComponent(sameNameError)
+                    .addContainerGap(300, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -145,9 +206,46 @@ public class RegisterPage extends javax.swing.JFrame {
 
     private void CreateAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountButtonActionPerformed
         // TODO add your handling code here:
-        LoginPage loginpage = new LoginPage();
-        loginpage.show();
-        dispose();
+       lengthError.setText("");
+    sameNameError.setText("");
+
+    boolean sameName = false;
+    String name = RegisterPlayerNameTextField.getText();
+    String password = new String(RegisterPlayerPasswordField.getPassword());
+
+    
+    if (name.length() < 5 || name.length() > 10 || password.length() < 5 || password.length() > 12) {
+        lengthError.setText("Invalid length");
+        return;
+    }
+
+    String playerFile = "player.txt";
+    Player[] players = MultiplayerQuizApplication.playerRead(playerFile);
+
+    if (players != null) {
+        
+        for (int i = 0; i < MultiplayerQuizApplication.getPlayerIndex(); i++) {
+            if (players[i] != null && (players[i].getName().equals(name))) {
+                sameNameError.setText("Name Taken");
+                sameName = true;
+                break;
+            }
+        }
+
+        
+        if (!sameName) {
+            Player newPlayer = new Player(name, password, "0");
+            MultiplayerQuizApplication.addPlayer(players, newPlayer);
+            MultiplayerQuizApplication.playerWrite(players, playerFile);
+
+            
+            LoginPage loginPage = new LoginPage();
+            loginPage.setVisible(true);
+            this.dispose(); 
+        }
+    } else {
+        sameNameError.setText("Server Error");
+    }
     }//GEN-LAST:event_CreateAccountButtonActionPerformed
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
@@ -156,6 +254,11 @@ public class RegisterPage extends javax.swing.JFrame {
         exitpage.show();
         dispose();
     }//GEN-LAST:event_ExitButtonActionPerformed
+
+    private void RegisterPlayerNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPlayerNameTextFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_RegisterPlayerNameTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,6 +303,11 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JLabel RegisterPasswordLabel;
     private javax.swing.JTextField RegisterPlayerNameTextField;
     private javax.swing.JPasswordField RegisterPlayerPasswordField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lengthError;
+    private javax.swing.JLabel sameNameError;
     // End of variables declaration//GEN-END:variables
 }
