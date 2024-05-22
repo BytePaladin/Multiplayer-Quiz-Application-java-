@@ -1,0 +1,12 @@
+Which sentence is the most used to print when learning a new programming language for the first time ? , Hello Me , Hello Peter , Hello World , Whats up , c 
+Who is the developer of java ? , James Gosling , Richard Stallman , Linus Torvalds , Dennis Ritchie , a 
+What do software developers use to code  ? , Compiler , IDE , Assembler , Registrar , b
+What is deep learning a topic of ? , Cybersecurity , Android App Development , Artificial Intelligence , None of the above , c
+What language is used in Full Stack Web Development ? , Java Script , Assembly Language , COBOL , All of these , a
+What is it called when the same function is run multiple times ? , Field , Sheet , Object , Loop , d
+What is the blue print for creating an object in Java ? , Method , Class , Data Field , File , b
+Which of the following is an open source OS? , Oracle Solaris , MacOS , Ubuntu , Safari , c
+Which of the following is a Trojan ? , Melissa , My Doom , Zeus , Code Red , c
+Which of the following is used by game developers for 3D modelling ? , Blender , Z Brush , Maya , All of the above , d
+
+
