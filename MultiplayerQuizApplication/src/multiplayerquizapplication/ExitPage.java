@@ -2,58 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 package multiplayerquizapplication;
-import javax.swing.ImageIcon;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.AudioInputStream;
-import java.io.File;
-import javax.swing.Timer;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-
+/**
+ *
+ * @author Sabit
+ */
 public class ExitPage extends javax.swing.JFrame {
 
     /**
      * Creates new form ExitPage
      */
-public ExitPage() {
-    initComponents();
-    playBackgroundMusic("C:\\Users\\USER\\Downloads\\Multiplayer-Quiz-Application-java--main\\Multiplayer-Quiz-Application-java--main\\MultiplayerQuizApplication\\Interlinked (128)-[AudioTrimmer.com].wav");
-    startCloseTimer();
-}
-
-private void startCloseTimer() {
-    Timer timer = new Timer(19000, new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            dispose(); // Close the window
-        }
-    });
-    timer.setRepeats(false); // Only execute once
-    timer.start();
-}
-
-
-    private void playBackgroundMusic(String filePath) {
-    try {
-        File musicPath = new File(filePath);
-        if (musicPath.exists()) {
-            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInput);
-            clip.start();
-            clip.loop(Clip.LOOP_CONTINUOUSLY); // Loop the music
-        } else {
-            System.out.println("Can't find file");
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
+    public ExitPage() {
+        initComponents();
     }
-}
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,41 +26,23 @@ private void startCloseTimer() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        GOODBYE = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        EXITFLOWERS = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-
-        GOODBYE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/multiplayerquizapplication/FLOWERS.jpg"))); // NOI18N
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 200));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 153));
-        jPanel1.setAlignmentX(50.0F);
-        jPanel1.setAlignmentY(0.0F);
-        jPanel1.setMaximumSize(new java.awt.Dimension(1200, 1200));
-        jPanel1.setPreferredSize(new java.awt.Dimension(500, 500));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
-        EXITFLOWERS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EXITFLOWERS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/multiplayerquizapplication/beautiful-floral-wallpaper.png"))); // NOI18N
-        EXITFLOWERS.setText("jLabel3");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("                      Goodbye ");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/multiplayerquizapplication/neonsea.gif"))); // NOI18N
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(0, 51, 51));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Toledo", 3, 36)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("YOU HAVE ONLY STUMBLED UPON A STONE ON    YOUR PATH,THIS OBSTACLE MEANS NOTHING.\nYOUR JOURNEY LIES FAR BEYOND THIS,DOESN'T?  I AM SURE THAT YOU WILL START WALKING \nAGAIN.SOON.");
-        jScrollPane1.setViewportView(jTextArea1);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/multiplayerquizapplication/memeresized.png"))); // NOI18N
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,37 +51,34 @@ private void startCloseTimer() {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(EXITFLOWERS, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3))
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(EXITFLOWERS, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, 807, 807, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -171,7 +112,6 @@ private void startCloseTimer() {
         //</editor-fold>
 
         /* Create and display the form */
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ExitPage().setVisible(true);
@@ -180,11 +120,8 @@ private void startCloseTimer() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EXITFLOWERS;
-    private javax.swing.JLabel GOODBYE;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
