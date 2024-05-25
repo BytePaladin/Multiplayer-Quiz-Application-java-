@@ -1,20 +1,169 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package multiplayerquizapplication;
 
+package multiplayerquizapplication;
 /**
  *
  * @author Sabit
  */
+
+import java.util.*;
+import java.io.*;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioInputStream;
+import java.io.File;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 public class QuizPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form QuizPage
-     */
+    public static int quesCount = 10;
+    private Clip clip;  
+    private int currentQuestionIndex = 0;
+    public static String winner = "" ;
+    
+    private String correctAnswer;
+    private Timer timer;
+
     public QuizPage() {
         initComponents();
+        
+         playMusic("zhongli.wav");
+        // Add a window listener to stop the music when the window is closing
+            this.addWindowListener(new WindowAdapter() 
+            {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                stopMusic();
+            }
+            });
+            
+            
+        
+        loadQuestion(currentQuestionIndex); // Load the first question initially
+        
+        startTimer(); // Start the countdown timer
+    }
+    
+    
+
+    
+
+// Method to play music (optional)
+private void playMusic(String filePath) {
+    try {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(filePath));
+        clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.start();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+}
+
+// Method to stop the music
+private void stopMusic() {
+    if (clip != null && clip.isRunning()) {
+        clip.stop();
+    }
+}
+    
+    
+    private void loadQuestion(int index) {
+        String selectedQ = QuestionSelectionPage.selectedQuesToPass;
+       
+        try (BufferedReader reader = new BufferedReader(new FileReader(selectedQ+".txt"))) {
+            String line;
+            int currentIndex = 0;
+            while ((line = reader.readLine()) != null) {
+                if (currentIndex == index) {
+                    String[] parts = line.split(",");
+                    if (parts.length == 6) {
+                        QuestionText.setText(parts[0]);
+                        Option1.setText(parts[1]);
+                        Option2.setText(parts[2]);
+                        Option3.setText(parts[3]);
+                        Option4.setText(parts[4]);
+                        correctAnswer = parts[5].trim();
+                    }
+                    break;
+                }
+                currentIndex++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void startTimer() {
+        if (timer != null) {
+            timer.cancel();
+        }
+        timer = new Timer();
+        TimerTask task = new TimerTask() {
+            int seconds = 15;
+
+            @Override
+            public void run() {
+                TimerText.setText(String.valueOf(seconds));
+                if (seconds == 0) {
+                    timer.cancel();
+                    loadNextQuestion();
+                }
+                seconds--;
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, 1000);
+    }
+
+private void loadNextQuestion() {
+    if (currentQuestionIndex < quesCount - 1) {
+        currentQuestionIndex++;
+        loadQuestion(currentQuestionIndex);
+        startTimer(); // Restart the timer for the next question
+    } 
+    else {
+        stopMusic();  // Add this line to stop the music
+        if (LoginPage.playertopass1.getRightAns() > LoginPage.playertopass2.getRightAns()) {
+            LoginPage.playertopass1.increaseWin();
+            setWinner(LoginPage.playertopass1);
+            timer.cancel();
+            MultiplayerQuizApplication.playerWrite(LoginPage.playersfromlogin, "player.txt");
+            ResultPage resultPage = new ResultPage();
+            resultPage.show();
+            dispose();
+             
+            
+        } 
+        else if (LoginPage.playertopass1.getRightAns() < LoginPage.playertopass2.getRightAns()) {
+            LoginPage.playertopass2.increaseWin();
+            setWinner(LoginPage.playertopass2);
+            timer.cancel();
+            MultiplayerQuizApplication.playerWrite(LoginPage.playersfromlogin, "player.txt");
+            ResultPage resultPage = new ResultPage();
+            resultPage.show();
+            dispose();
+            
+        } 
+        else {
+            TiePage tiePage = new TiePage();
+            tiePage.show();
+            timer.cancel();
+            dispose();
+            
+        }
+        
+    }
+}
+
+    
+    public void setWinner(Player Winner){
+        winner = Winner.getName();
+    }
+    
+    public String getWinner(){
+        return winner;
     }
 
     /**
@@ -303,6 +452,63 @@ public class QuizPage extends javax.swing.JFrame {
 
     private void ChoiceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChoiceKeyPressed
         // TODO add your handling code here:
+        char key = evt.getKeyChar();
+        String answer = "";
+        //Player currentPlayer = null;
+
+        switch (key) {
+            case 'q':
+            case 'h':
+                answer = "a";
+                if (key == 'q') {
+                    //currentPlayer = player1;
+                    LoginPage.playertopass1.increaseRightAns();
+                } else if (key == 'h') {
+                    //currentPlayer = player2;
+                    LoginPage.playertopass2.increaseRightAns();
+                } 
+                break;
+            case 'w':
+            case 'j':
+                answer = "b";
+                if (key == 'w') {
+                    //currentPlayer = player1;
+                    LoginPage.playertopass1.increaseRightAns();
+                } else if (key == 'j') {
+                    //currentPlayer = player2;
+                    LoginPage.playertopass2.increaseRightAns();
+                } 
+                break;
+            case 'e':
+            case 'k':
+                answer = "c";
+                if (key == 'e') {
+                    //currentPlayer = player1;
+                    LoginPage.playertopass1.increaseRightAns();
+                } else if (key == 'k') {
+                    //currentPlayer = player2;
+                    LoginPage.playertopass2.increaseRightAns();
+                } 
+                break;
+            case 'r':
+            case 'l':
+                answer = "d";
+                if (key == 'r') {
+                    //currentPlayer = player1;
+                    LoginPage.playertopass1.increaseRightAns();
+                } else if (key == 'l') {
+                    //currentPlayer = player2;
+                    LoginPage.playertopass2.increaseRightAns();
+                } 
+                break;
+        }
+
+        
+
+        // Clear the input field and load the next question
+        Choice.setText("");
+        loadNextQuestion();
+        
     }//GEN-LAST:event_ChoiceKeyPressed
 
     private void ChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChoiceActionPerformed
@@ -367,4 +573,7 @@ public class QuizPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+   
+   
 }

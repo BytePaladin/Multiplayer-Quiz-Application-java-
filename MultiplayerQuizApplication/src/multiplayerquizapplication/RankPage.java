@@ -1,24 +1,44 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package multiplayerquizapplication;
-
-import static multiplayerquizapplication.MultiplayerQuizApplication.playerRead;
-
 /**
  *
  * @author Sabit
  */
+
+import java.util.*;
+import javax.swing.JTextField;
+import static multiplayerquizapplication.MultiplayerQuizApplication.playerRead;
+
+
 public class RankPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RankPage
-     */
+    private Player[] players;
+
     public RankPage() {
-        String playerFile = "player.txt" ;
-        Player[] players = playerRead(playerFile);
         initComponents();
+    
+         Player[] players = playerRead("player.txt");
+        if (players != null) {
+      
+            Player[] playersToRank = new Player[MultiplayerQuizApplication.getPlayerIndex()];
+            int index = 0;
+            for (int i = 0; i < players.length; i++) {
+                if (players[i] != null) {
+                    playersToRank[index++] = players[i];
+                }
+            }
+
+            
+            Arrays.sort(playersToRank, Comparator.comparingInt(Player::getNumOfWin).reversed());
+
+            JTextField[] rankFields = {Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8, Rank9, Rank10};
+
+            
+            for (int i = 0; i < Math.min(playersToRank.length, rankFields.length); i++) {
+                JTextField rankField = rankFields[i];
+                Player player = playersToRank[i];
+                rankField.setText((i + 1) + ". " + player.getName() + " - Wins: " + player.getNumOfWin());
+            }
+        }
     }
 
     /**
@@ -56,13 +76,12 @@ public class RankPage extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("                                       Rank");
+        jLabel1.setText("                                     Ranking");
 
         Rank1.setEditable(false);
         Rank1.setBackground(new java.awt.Color(255, 255, 255));
-        Rank1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank1.setForeground(new java.awt.Color(0, 0, 0));
-        Rank1.setText("jTextField1");
         Rank1.setBorder(null);
         Rank1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,65 +91,56 @@ public class RankPage extends javax.swing.JFrame {
 
         Rank2.setEditable(false);
         Rank2.setBackground(new java.awt.Color(255, 255, 255));
-        Rank2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank2.setForeground(new java.awt.Color(0, 0, 0));
-        Rank2.setText("jTextField1");
         Rank2.setBorder(null);
 
         Rank4.setEditable(false);
         Rank4.setBackground(new java.awt.Color(255, 255, 255));
-        Rank4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank4.setForeground(new java.awt.Color(0, 0, 0));
-        Rank4.setText("jTextField1");
         Rank4.setBorder(null);
 
         Rank3.setEditable(false);
         Rank3.setBackground(new java.awt.Color(255, 255, 255));
-        Rank3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank3.setForeground(new java.awt.Color(0, 0, 0));
-        Rank3.setText("jTextField1");
         Rank3.setBorder(null);
 
         Rank5.setEditable(false);
         Rank5.setBackground(new java.awt.Color(255, 255, 255));
-        Rank5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank5.setForeground(new java.awt.Color(0, 0, 0));
-        Rank5.setText("jTextField1");
         Rank5.setBorder(null);
 
         Rank6.setEditable(false);
         Rank6.setBackground(new java.awt.Color(255, 255, 255));
-        Rank6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank6.setForeground(new java.awt.Color(0, 0, 0));
-        Rank6.setText("jTextField1");
         Rank6.setBorder(null);
 
         Rank8.setEditable(false);
         Rank8.setBackground(new java.awt.Color(255, 255, 255));
-        Rank8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank8.setForeground(new java.awt.Color(0, 0, 0));
-        Rank8.setText("jTextField1");
         Rank8.setBorder(null);
 
         Rank7.setEditable(false);
         Rank7.setBackground(new java.awt.Color(255, 255, 255));
-        Rank7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank7.setForeground(new java.awt.Color(0, 0, 0));
-        Rank7.setText("jTextField1");
         Rank7.setBorder(null);
 
         Rank9.setEditable(false);
         Rank9.setBackground(new java.awt.Color(255, 255, 255));
-        Rank9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank9.setForeground(new java.awt.Color(0, 0, 0));
-        Rank9.setText("jTextField1");
         Rank9.setBorder(null);
 
         Rank10.setEditable(false);
         Rank10.setBackground(new java.awt.Color(255, 255, 255));
-        Rank10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Rank10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Rank10.setForeground(new java.awt.Color(0, 0, 0));
-        Rank10.setText("jTextField1");
         Rank10.setBorder(null);
 
         ExitButton.setBackground(new java.awt.Color(51, 51, 51));

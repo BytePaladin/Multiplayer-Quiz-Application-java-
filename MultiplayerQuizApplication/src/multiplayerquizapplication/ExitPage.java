@@ -8,6 +8,9 @@ package multiplayerquizapplication;
  *
  * @author Sabit
  */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 public class ExitPage extends javax.swing.JFrame {
 
     /**
@@ -15,6 +18,19 @@ public class ExitPage extends javax.swing.JFrame {
      */
     public ExitPage() {
         initComponents();
+        initComponents();
+        
+        // Set up a timer to close the frame after 5 seconds
+        Timer timer = new Timer(3000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose(); // Close the frame
+                System.exit(0);
+            }
+        });
+        timer.setRepeats(false); // Ensure the timer only runs once
+        timer.start(); // Start the timer
+        
     }
 
     /**
@@ -118,6 +134,7 @@ public class ExitPage extends javax.swing.JFrame {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

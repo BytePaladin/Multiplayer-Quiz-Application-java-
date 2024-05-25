@@ -4,17 +4,30 @@
  */
 package multiplayerquizapplication;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import multiplayerquizapplication.QuestionSelectionPage;
+
 /**
  *
  * @author Sabit
  */
 public class LoginPage extends javax.swing.JFrame {
 
+    private boolean player1LoginSuccessful = false;
+    private boolean player2LoginSuccessful = false;
+    public static Player playertopass1 , playertopass2;
+    public static Player[] playersfromlogin;
+
     /**
      * Creates new form LoginPage
      */
     public LoginPage() {
         initComponents();
+        playersfromlogin = MultiplayerQuizApplication.playerRead("player.txt");
     }
 
     /**
@@ -43,7 +56,6 @@ public class LoginPage extends javax.swing.JFrame {
         Player2LoginButton = new javax.swing.JButton();
         Player2PasswordField = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         Login2Success = new javax.swing.JTextField();
         Login1Success = new javax.swing.JTextField();
@@ -174,6 +186,11 @@ public class LoginPage extends javax.swing.JFrame {
         Player2LoginButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Player2LoginButton.setForeground(new java.awt.Color(0, 0, 0));
         Player2LoginButton.setText("Login");
+        Player2LoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Player2LoginButtonActionPerformed(evt);
+            }
+        });
 
         Player2PasswordField.setBackground(new java.awt.Color(255, 255, 255));
         Player2PasswordField.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -228,11 +245,6 @@ public class LoginPage extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 153, 153));
-        jTextField1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-
         jButton1.setBackground(new java.awt.Color(0, 255, 0));
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
@@ -252,6 +264,11 @@ public class LoginPage extends javax.swing.JFrame {
         Login1Success.setBackground(new java.awt.Color(51, 255, 255));
         Login1Success.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Login1Success.setForeground(new java.awt.Color(0, 0, 0));
+        Login1Success.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Login1SuccessActionPerformed(evt);
+            }
+        });
 
         ExitButton.setBackground(new java.awt.Color(51, 51, 51));
         ExitButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -271,25 +288,23 @@ public class LoginPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(Login1Success, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(Login2Success, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(505, 505, 505))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(497, 497, 497))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(Login1Success, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Login2Success, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Login1Success, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Login2Success, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -339,14 +354,42 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void Player1LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Player1LoginButtonActionPerformed
         // TODO add your handling code here:
-        
+        String playerName = Player1NameTextField.getText();
+        String playerPassword = Player1PasswordField.getText();
+        boolean loginSuccessful = false;
+        String playerName2 = Player2NameTextField.getText();
+         
+        if(playerName.equals(playerName2)){
+            Login1Success.setText("Same name found!");
+        }
+        else{
+        playertopass1 = MultiplayerQuizApplication.searchPlayer(playersfromlogin,playerName,playerPassword);
+
+        if (playertopass1 != null) {
+            player1LoginSuccessful = true;
+           
+            
+            Login1Success.setText("Login successful");
+            System.out.println(playertopass1.toString());
+            
+        } else {
+            // Show error message
+            Login1Success.setText("Player not found!");
+            //System.out.println(playerName + "Doesn't exist!");
+        }
+        }
     }//GEN-LAST:event_Player1LoginButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        QuestionSelectionPage questionselectionpage = new QuestionSelectionPage();
-        questionselectionpage.show();
-        dispose();
+
+        if (player1LoginSuccessful == true && player2LoginSuccessful == true) {
+            QuestionSelectionPage questionselectionpage = new QuestionSelectionPage();
+            questionselectionpage.show();
+            dispose();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null, "Both player must be logged in to start.", "Login required.", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
@@ -355,6 +398,45 @@ public class LoginPage extends javax.swing.JFrame {
         exitpage.show();
         dispose();
     }//GEN-LAST:event_ExitButtonActionPerformed
+
+    private void Player1NameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Player1NameTextFieldActionPerformed
+
+
+    }//GEN-LAST:event_Player1NameTextFieldActionPerformed
+
+    private void Player2LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Player2LoginButtonActionPerformed
+        // TODO add your handling code here:
+        String playerName = Player2NameTextField.getText();
+        String playerPassword = Player2PasswordField.getText();
+        boolean loginSuccessful = false;
+        String playerName1 = Player1NameTextField.getText();
+         
+        if(playerName.equals(playerName1)){
+            Login2Success.setText("Same name found!");
+        }
+        else{
+         playertopass2 = MultiplayerQuizApplication.searchPlayer(playersfromlogin,playerName,playerPassword);
+
+        if (playertopass2 != null) {
+            player2LoginSuccessful = true;
+            Login2Success.setText("Login Successful");
+            System.out.println(playertopass2.toString());
+            
+        } else {
+            // Show error message
+            Login2Success.setText("Player Not Found");
+            
+        }
+        }
+    }//GEN-LAST:event_Player2LoginButtonActionPerformed
+
+    private void Player1PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Player1PasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Player1PasswordFieldActionPerformed
+
+    private void Login1SuccessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login1SuccessActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Login1SuccessActionPerformed
 
     /**
      * @param args the command line arguments
@@ -409,7 +491,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel player1NameLabel;
     private javax.swing.JLabel player1PasswordEntry;
     private javax.swing.JLabel player1PasswordLable;

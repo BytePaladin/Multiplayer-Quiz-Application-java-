@@ -29,12 +29,10 @@ public class ResultPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        WinnerName = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        NumberOfRightAnswer = new javax.swing.JTextField();
         LoginPageButton = new javax.swing.JButton();
         RankingButton = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
+        winnerName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 200));
@@ -52,31 +50,6 @@ public class ResultPage extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("                        Quiz Result ");
-
-        WinnerName.setEditable(false);
-        WinnerName.setBackground(new java.awt.Color(255, 255, 255));
-        WinnerName.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        WinnerName.setForeground(new java.awt.Color(0, 0, 0));
-        WinnerName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WinnerNameActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Number of Right Answers:");
-
-        NumberOfRightAnswer.setEditable(false);
-        NumberOfRightAnswer.setBackground(new java.awt.Color(102, 102, 255));
-        NumberOfRightAnswer.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        NumberOfRightAnswer.setForeground(new java.awt.Color(255, 255, 255));
-        NumberOfRightAnswer.setBorder(null);
-        NumberOfRightAnswer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NumberOfRightAnswerActionPerformed(evt);
-            }
-        });
 
         LoginPageButton.setBackground(new java.awt.Color(51, 51, 51));
         LoginPageButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -108,27 +81,28 @@ public class ResultPage extends javax.swing.JFrame {
             }
         });
 
+        winnerName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        winnerName.setForeground(new java.awt.Color(255, 255, 255));
+        winnerName.setText(QuizPage.winner);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NumberOfRightAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WinnerName, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(RankingButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ExitButton)
-                .addGap(68, 68, 68)
-                .addComponent(LoginPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 28, Short.MAX_VALUE)
+                        .addComponent(winnerName, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(RankingButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ExitButton)
+                        .addGap(68, 68, 68)
+                        .addComponent(LoginPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(148, 148, 148))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -139,15 +113,11 @@ public class ResultPage extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(143, 143, 143)
+                .addGap(145, 145, 145)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WinnerName, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(NumberOfRightAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                    .addComponent(winnerName, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RankingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ExitButton)
@@ -173,17 +143,10 @@ public class ResultPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void WinnerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WinnerNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WinnerNameActionPerformed
-
-    private void NumberOfRightAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberOfRightAnswerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NumberOfRightAnswerActionPerformed
-
+   
     private void LoginPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginPageButtonActionPerformed
         // TODO add your handling code here:
+        
         LoginPage loginpage = new LoginPage();
         loginpage.show();
         dispose();
@@ -191,6 +154,7 @@ public class ResultPage extends javax.swing.JFrame {
 
     private void RankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RankingButtonActionPerformed
         // TODO add your handling code here:
+        
         RankPage rankpage = new RankPage();
         rankpage.show();
         dispose();
@@ -198,6 +162,7 @@ public class ResultPage extends javax.swing.JFrame {
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         // TODO add your handling code here:
+        
         ExitPage exitpage = new ExitPage();
         exitpage.show();
         dispose();
@@ -241,12 +206,10 @@ public class ResultPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton LoginPageButton;
-    private javax.swing.JTextField NumberOfRightAnswer;
     private javax.swing.JButton RankingButton;
-    private javax.swing.JTextField WinnerName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel winnerName;
     // End of variables declaration//GEN-END:variables
 }

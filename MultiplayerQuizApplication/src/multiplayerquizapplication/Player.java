@@ -1,11 +1,16 @@
 
 package multiplayerquizapplication;
-import java.io.*;
-public class Player {
-    private String name , password , numOfWin ;
-    private int rightAns ;
+/**
+ *
+ * @author Sabit
+ */
 
-    public Player(String name, String password, String numOfWin) {
+public class Player {
+    private String name , password ;
+    private int numOfWin ;
+    private int rightAns = 0 ;
+
+    public Player(String name, String password, int numOfWin) {
         
         this.name = name;
         this.password = password;
@@ -21,7 +26,7 @@ public class Player {
         return password;
     }
 
-    public String getNumOfWin() {
+    public int getNumOfWin() {
         return numOfWin;
     }
 
@@ -37,7 +42,7 @@ public class Player {
         this.password = password;
     }
 
-    public void setNumOfWin(String numOfWin) {
+    public void setNumOfWin(int numOfWin) {
         this.numOfWin = numOfWin;
     }
 
@@ -45,9 +50,16 @@ public class Player {
         this.rightAns = rightAns;
     }
     
+    public void increaseRightAns(){
+        rightAns++;
+    }
+    public void increaseWin(){
+       numOfWin++;
+    }
+
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", password=" + password + ", numOfWin=" + numOfWin + '}';
+        return "Player{" + "name=" + name + ", password=" + password + '}';
     }
     
     

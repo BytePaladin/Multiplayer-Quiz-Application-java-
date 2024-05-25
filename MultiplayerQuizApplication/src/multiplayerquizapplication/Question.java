@@ -1,5 +1,8 @@
 package multiplayerquizapplication;
-
+/**
+ *
+ * @author Sabit
+ */
 import java.util.Scanner;
 
 public class Question {
@@ -32,14 +35,34 @@ public class Question {
 
     }
 
-    public int getNumber() {
-        return number;
+    public Scanner getInput() {
+        return input;
     }
 
-    @Override
-    public String toString() {
-        return "";
+    public String getQuestion() {
+        return question;
     }
 
+    public String getOpA() {
+        return opA;
+    }
+
+    public String getOpB() {
+        return opB;
+    }
+
+    public String getOpC() {
+        return opC;
+    }
+
+    public String getOpD() {
+        return opD;
+    }
+
+    public char getAns() {
+        return ans;
+    }
+
+    
 
 }
